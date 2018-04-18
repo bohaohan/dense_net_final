@@ -340,7 +340,7 @@ def train(model, train_set, test_set, save, n_epochs=300, valid_size=5000,
 
         result_train.append([train_loss, train_error, valid_loss, valid_error])
         print("epoch:", epoch + 1, "/", n_epochs, ", train_loss:", train_loss, ", train_error:", train_error, ", valid_loss:", valid_loss, ",valid_error:", valid_error )
-        if epoch > n_epochs-10:
+        if epoch > n_epochs-100:
             test_results = test_epoch(
                 model=model_wrapper,
                 loader=test_loader,
@@ -486,7 +486,7 @@ Other args:
 """
 if __name__ == '__main__':
     # fire.Fire(demo)
-    demo("/home/corey/coreys-code/data", "save_127", depth=112, growth_rate=18, efficient=False, valid_size=5000,
-         n_epochs=300, batch_size=24, seed=None)
+    # demo("/home/corey/coreys-code/data", "save_127", depth=112, growth_rate=18, efficient=False, valid_size=5000,
+    #      n_epochs=300, batch_size=24, seed=None)
     demo("/home/corey/coreys-code/data", "save_58", depth=58, growth_rate=12, efficient=False, valid_size=5000,
          n_epochs=300, batch_size=64, seed=None)
