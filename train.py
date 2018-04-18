@@ -66,8 +66,8 @@ class _Transition(nn.Sequential):
         self.add_module('relu', nn.ReLU(inplace=True))
         self.add_module('conv', nn.Conv2d(num_input_features, num_output_features,
                                           kernel_size=1, stride=1, bias=False))
-#         self.add_module('pool', nn.AvgPool2d(kernel_size=2, stride=2))
-        self.add_module('pool', nn.MaxPool2d(kernel_size=2, stride=2))
+        self.add_module('pool', nn.AvgPool2d(kernel_size=2, stride=2))
+        # self.add_module('pool', nn.MaxPool2d(kernel_size=2, stride=2))
 
 
 class _DenseBlock(nn.Sequential):
@@ -91,8 +91,8 @@ class DenseNet(nn.Module):
         num_classes (int) - number of classification classes
         small_inputs (bool) - set to True if images are 32x32. Otherwise assumes images are larger.
     """
-    def __init__(self, growth_rate=12, block_config=(16, 16, 16), compression=0.5,
-#     def __init__(self, growth_rate=12, block_config=(16, 16, 16), compression=1,
+    # def __init__(self, growth_rate=12, block_config=(16, 16, 16), compression=0.5,
+    def __init__(self, growth_rate=12, block_config=(16, 16, 16), compression=1,
                  num_init_features=24, bn_size=4, drop_rate=0,
                  num_classes=10, small_inputs=True):
 
@@ -478,4 +478,7 @@ Other args:
 """
 if __name__ == '__main__':
     # fire.Fire(demo)
-    demo("/home/corey/coreys-code/data", "save")
+    demo("/home/corey/coreys-code/data", "save_58", depth=58, growth_rate=12, efficient=False, valid_size=5000,
+         n_epochs=300, batch_size=64, seed=None)
+    demo("/home/corey/coreys-code/data", "save_127", depth=127, growth_rate=18, efficient=False, valid_size=5000,
+         n_epochs=300, batch_size=64, seed=None)
