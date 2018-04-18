@@ -408,6 +408,9 @@ def demo(data, save, depth=58, growth_rate=12, efficient=False, valid_size=5000,
         seed (int) - manually set the random seed (default None)
     """
 
+    result_train = []
+    result_test = []
+
     # Get densenet configuration
     if (depth - 4) % 3:
         raise Exception('Invalid depth')
@@ -459,6 +462,8 @@ def demo(data, save, depth=58, growth_rate=12, efficient=False, valid_size=5000,
     print("depth:", depth, "growth_rate:", growth_rate, "batch_size:", batch_size)
     print("n_epochs:", n_epochs, "valid_size:", valid_size, "efficient:", efficient)
     print("count_parameters:", count_parameters(model))
+    print("train:", result_train)
+    print("test:", result_test)
     print('Done!')
 
 
