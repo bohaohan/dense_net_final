@@ -9,6 +9,7 @@ from collections import OrderedDict
 is_mobile = True
 is_inception = False
 
+
 class _DenseLayer(nn.Sequential):
     def __init__(self, num_input_features, growth_rate, bn_size, drop_rate):
         super(_DenseLayer, self).__init__()
@@ -220,6 +221,8 @@ def train_epoch(model, loader, optimizer, epoch, n_epochs, print_freq=1):
                 'Error %.4f (%.4f)' % (error.val, error.avg),
             ])
             print(res)
+        import sys
+        sys.stdout.flush()
 
     # Return summary statistics
     return batch_time.avg, losses.avg, error.avg
