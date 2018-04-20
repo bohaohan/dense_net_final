@@ -488,5 +488,5 @@ if __name__ == '__main__':
     # fire.Fire(demo)
     # demo("/home/corey/coreys-code/data", "save_127", depth=112, growth_rate=18, efficient=False, valid_size=5000,
     #      n_epochs=300, batch_size=24, seed=None)
-    demo("/home/corey/coreys-code/data", "save_58", depth=58, growth_rate=12, efficient=False, valid_size=5000,
+    demo("-f", "save_58", depth=58, growth_rate=12, efficient=False, valid_size=5000,
          n_epochs=300, batch_size=64, seed=None)
